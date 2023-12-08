@@ -1,0 +1,483 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="{% static 'homePage/css/landingpagecss.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="https://kit.fontawesome.com/fd28305bd0.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:wght@700&family=Caveat:wght@600&family=EB+Garamond:ital,wght@1,500&family=Fira+Sans+Condensed:wght@500&family=Golos+Text:wght@400;800;900&family=Gruppo&family=IBM+Plex+Sans+Condensed:ital,wght@1,500&family=Noto+Sans&family=Nunito+Sans:wght@300;700&family=Oswald:wght@400;500&family=Poltawski+Nowy:wght@500&family=Roboto:ital@0;1&family=Russo+One&family=Sono:wght@500&family=Source+Sans+Pro:wght@700&family=Space+Grotesk:wght@400;700&family=Tilt+Warp&family=Work+Sans:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" type="image" href="{% static 'homePage/img/Logofortitle.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshmen | Let's Start Together</title>
+</head>
+
+<body>
+  <!-- preloader div  -->
+  <div id="preloader">
+    <div class="flexcontainer">
+      <div class="logo flexitem1">
+        <img src="{% static 'homePage/img/Logofortitle.png' %}" alt="">
+      </div>
+      <div class="title flexitem2">
+        <img src="{% static 'homePage/img/Freshmen_heading.png' %}" alt="">
+      </div>
+    </div>
+  </div>
+
+
+  <header>
+    <!-- -------------------------------------------------------------------Navbar---------------------------------------------- -->
+    <nav>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img src="{% static 'homePage/img/Logo_Title.png' %}" alt="Logo" width="300" height="60" class="d-inline-block align-text-top">
+          </a>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="about/">About</a></li>
+            <li><a href="https://forms.gle/GQau6y1P3DFyTDPJ7">Report Bug</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <div class="submitbtn">
+              <button type="button" onclick = "window.location.href='https://forms.gle/3cviRX58Do1SdWb49';"
+              >Submit Review
+                  <ul class="popup-message">Help others students make informed choices , Fill the form!</ul>
+              </button>
+            </div>
+          </ul>
+        </div>
+        <nav>
+          <!-- -----------------------------------------------------------------Navbar(responsive)------------------------------------- -->
+          <div class="navbar-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <ul class="navbar-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutpage.html">About</a></li>
+            <li><a href="https://forms.gle/GQau6y1P3DFyTDPJ7">Report Bug</a></li>
+            <li><a href="Contac.html">Contact</a></li>
+            <li><a><button type="button" onclick = "window.location.href='https://forms.gle/3cviRX58Do1SdWb49';">Submit Review</button></a></li>
+          </ul>
+        </nav>
+      </nav>
+  </header>
+  <!-- -----------------------------------------------------------------Heading and Description-------------------------------- -->
+  <div class="content-area">
+    <div class="head"><strong>'ProfCheck'</strong> is a tool to filter<br>
+      <center>Professors for <strong>FFCS.</strong></center></br>
+    </div>
+    <div class="desc">Freshman will help you filter profs before FFCS so that <br>
+      <center>you'll not regret later!</center></br>
+    </div>
+    <!-- -----------------------------------------------------------------Search Area-------------------------------------------- -->
+    <div class="search-bar">
+      <div>
+        <input type="text" id="searchInput" placeholder="Enter a name" oninput="filterDropdown()">
+        <select id="dropdown">
+          <option value="option1">Name</option>
+          {% for prof in profs %}
+          <option value="{{prof.name}}">{{prof.name}}</option>
+          {% endfor %}
+          <option value="Priyank Nema">Priyank Nema</option>
+          <option value="Manoj Acharya">Manoj Acharya</option>
+          <option value="Ujjwal Kumar Mishra">Ujjwal Kumar Mishra</option>
+          <option value="Aanjan Kumar">Aanjan Kumar</option>
+          <option value="Chandrama Swain">Chandrama Swain</option>
+          <option value="Satyam Ravi">Satyam Ravi</option>
+          <option value="Govind Prasad Pandya">Govind Prasad Pandya</option>
+          <option value="Saurabh Bhargava">Saurabh Bhargava</option>
+          <option value="Suchismita Patra">Suchismita Patra</option>
+          <option value="Pooja Lalwani">Pooja Lalwani</option>
+          <option value="Ravi Bhatt">Ravi Bhatt</option>
+          <option value="Sharmila Joseph">Sharmila Joseph</option>
+          <option value="Dondu Harish">Dondu Harish</option>
+          <option value="S. Periyanagi">S. Periyanagi</option>
+          <option value="Rajdeep Singh Payal">Rajdeep Singh Payal</option>
+          <option value="D.S Devraju">D.S Devraju</option>
+          <option value="Virendra Singh Kushwaha">Virendra Singh Kushwaha</option>
+          <option value="Arindam Gosh">Arindam Gosh</option>
+          <option value="Hemant Nashine">Hemant Nashine</option>
+          <option value="Anita Yadav">Anita Yadav</option>
+          <option value="Nikhil Pateria">Nikhil Pateria</option>
+          <option value="Bhavana Bhagerwal">Bhavana Bhagerwal</option>
+          <option value="Ankit Pal">Ankit Pal</option>
+          <option value="Javed Khan">Javed Khan</option>
+          <option value="Priyanka Roy">Priyanka Roy</option>
+          <option value="KK Nair">KK Nair</option>
+          <option value="Vinod Bhatt">Vinod Bhatt</option>
+          <option value="Ashok Kumar Baral">Ashok Kumar Baral</option>
+          <option value="Rajeev Saxena">Rajeev Saxena</option>
+          <option value="Suresh Dara">Suresh Dara</option>
+          <option value="Aakash Saxena">Aakash Saxena</option>
+          <option value="Soma Saha">Soma Saha</option>
+          <option value="Rabia Musheer">Rabia Musheer</option>
+          <option value="Bhumika Choksi">Bhumika Choksi</option>
+          <option value="Palash Jain">Palash Jain</option>
+          <option value="Siddharth K.V">Siddharth K.V</option>
+          <option value="Lokesh Malviya">Lokesh Malviya</option>
+<!--           <option value="Sucheta Sadukhan">Sucheta Sadukhan</option> -->
+          <option value="Sandeep Sahu">Sandeep Sahu</option>
+          <option value="Akshay Jadav">Akshay Jadav</option>
+          <option value="P. Narendra Babu">P. Narendra Babu</option>
+          <option value="Uday Kumar">Uday Kumar</option>
+          <option value="Arindham Ghosh">Arindham Ghosh</option>
+          <option value="Sadanand Singh">Sadanand Singh</option>
+                    <option value="Sana Afreen">Sana Afreen</option>
+          <option value="Yogesh Shukla">Yogesh Shukla</option>
+          <option value="Ramesh Saha">Ramesh Saha</option>
+          <option value="Anil Kumar Shukla">Anil Kumar Shukla</option>
+          <option value="Shweta Mukherjee">Shweta Mukherjee</option>
+          <option value="Harish Chandra">Harish Chandra</option>
+          <option value="Ajay Kumar Bhurjee">Ajay Kumar Bhurjee</option>
+          <option value="Rouf Khan">Rouf Khan</option>
+          <option value="Sughvanewshar Ramu Pasupathi">Sughvanewshar Ramu Pasupathi</option>
+          <option value="Suresh Babu">Suresh Babu</option>
+          <option value="Mayank Sharma">Mayank Sharma</option>
+          <option value="Pranjali Malviya">Pranjali Malviya</option>
+          <option value="Nilam Venkateshwarao">Nilam Venkateshwarao</option>
+          <option value="Vijay Kumar Patel">Vijay Kumar Patel</option>
+          <option value="Yogita Dwivedi">Yogita Dwivedi</option>
+          <option value="Anant Kumar Shukla">Anant Kumar Shukla</option>
+          <option value="Shiju E">Shiju E</option>
+          <option value="JP Shritharanya">JP Shritharanya</option>
+          <option value="Pradeep Kumar Mishra">Pradeep Kumar Mishra</option>
+          <option value="Anirban Bhowmik">Anirban Bhowmik</option>
+          <option value="Mayuri Kailas">Mayuri Kailas</option>
+          <option value="Saurav Prasad">Saurav Prasad</option>
+          <option value="K Pallavi">K Pallavi</option>
+          <option value="Avirup Das">Avirup Das</option>
+          <option value="Sumit Mittal">Sumit Mittal</option>
+          <option value="Priyanka Roy">Priyanka Roy</option>
+          <option value="G Prabhu Kannan">G Prabhu Kannan</option>
+          <option value="Ajay Kumar Bhurjee">Ajay Kumer Bhurjee</option>
+          <option value="Ranju Yadav">Ranju Yadav</option>
+          <option value="Prashant Kumar Pandey">Prashant Kumar Pandey</option>
+          <option value="Dipankar Sutradhar">Dipankar Sutradhar</option>
+          <option value="Divya Haridas">Divya Haridas</option>
+          <option value="Amit Thakur">Amit Thakur</option>
+          <option value="Dipankar Surthal">Dipankar Surthal</option>
+          <option value="Ribu Mathew">Ribu Mathew</option>
+          <option value="Abhishek Shrivastav">Abhishek Shrivastav</option>
+          <option value="Arpita Banoria">Arpita Banoria</option>
+          <option value="S Saravanan">S Saravanan</option>
+          <option value="Baseera A">Baseera A</option>
+          <option value="Reena Jain">Reena Jain</option>
+          <option value="Hemlatha Gangwar">Hemlatha Gangwar</option>
+          <option value="R.P Sugavaneshwar">R.P Sugavaneshwar</option>
+          <option value="Pradeep Kashyap">Pradeep Kashyap</option>
+          <option value="Karishma Tiwari">Karishma Tiwari</option>
+          <option value="M.R Thiyagu Priyadarshan">M.R Thiyagu Priyadarshan</option>
+          <option value="Benevatho Jaison A">Benevatho Jaison A</option>
+          <option value="Rajit Nair">Rajit Nair</option>
+          <option value="Praveen Kumar Lalwani">Praveen Kumar Lalwani</option>
+          <option value="Sonali Shrivastav">Sonali Shrivastav</option>
+          <option value="Shahid Abdullah">Shahid Abdullah</option>
+          <option value="Soumya Sanskar Ghosh">Soumya Sanskar Ghosh</option>
+          <option value="Neha Choubey">Neha Choubey</option>
+          <option value="Pavan Mehta">Pavan Mehta</option>
+          <option value="Shweta Saxena">Shweta Saxena</option>
+          <option value="Mamta Agarwal">Mamta Agarwal</option>
+          <option value="Anand Motwani">Anand Motwani</option>
+          <option value="Divya Thakur">Divya Thakur</option>
+          <option value="Abhay Vidyarthi">Abhay Vidyarthi</option>
+          <option value="E Nirmala">E Nirmala</option>
+          <option value="Shilpa Suman">Shilpa Suman</option>
+        </select>
+        <button id="submit">Find out!</button>
+      </div>
+    </div>
+    <div class="results">
+      <h3>Review:</h3>
+      <p id="selectedOption">Please Select a Professor from the above Dropdown list</p>
+    </div>
+  </div>
+
+  <div id="commentSection">
+    <h1><strong>DESCRIPTION</strong></h1>
+    {% for prof in profs %}
+    <div class="comments">{{prof.desc}}</div>
+    {% endfor %}
+  </div>
+
+  <!------------------------------------------------------------------------Accordion(FAQs)--------------------------------------- -->
+  <h1><strong>FAQs</strong></h1>
+  <div class="accordion">
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        What is FFCS?
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          FFCS stands for Fully Flexible Credit System, which grants students the freedom to register faculty based on
+          their choices. You will be assigned a time slot, during which you are required to register for courses with
+          your desired faculty.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        How the rating is decided?
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          We determine the rating by tracking the following parameters: Teaching, Evaluation, Behavior, Internals ,
+          Class average. Once we have collected the necessary data, we calculate the average rating and present it to
+          you.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        Is the data 100% accurate?
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          No , Profcheck relies solely on the data provided by students who have previously experienced the faculty. So please do not give wrong 
+          teachers review , since it is going to impact your fellow batchmates decision.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-item-header">
+        What should be the priority parameters?
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+          While the priority parameters may vary from student to student, a commonly accepted and generalized priority
+          order for choosing faculty can be as follows: Evaluation>Teaching>Class average>Internals >Behavior.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ---------------------------------------------------------------------footer------------------------------------------------ -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div id="footerImage">
+        <img src="{% static 'homePage/img/Logopng.png' %}" class="logoforfoot" height="80" width="80">
+      </div>
+      <div class="footer-text">Get the immersive and smooth experience<br> through starting off your engineering
+        career<br> with the
+        help of Freshmen.
+      </div>
+    </div>
+    <ul class="quicklink">
+      <b>Quick links</b>
+      <li><a href="#">ProfCheck</a></li>
+<!--       <li><a href="#">GPA Calculator</a></li>
+      <li><a href="#">OD Finder</a></li>
+      <li><a href="#">AcadHelp</a></li> -->
+    </ul>
+    <div class="email">
+      <div><b>Subscribe for notifications</b></div>
+      <input class="subscribe" placeholder="Enter your email">
+      <button id="Subscribe2">Subscribe</button>
+    </div>
+  </footer>
+  <!-- ---------------------------------------------------------Resposive Navbar Toggle button JS------------------------------- -->
+  <script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', function () {
+      navbarMenu.classList.toggle('show');
+    });
+
+  </script>
+  <!-- -----------------------------------------------------------Search Result JS------------------------------------------------- -->
+  <script>
+    var originalDropdownOptions = Array.from(document.getElementById("dropdown").options);
+
+    function filterDropdown() {
+      var searchInput = document.getElementById("searchInput").value.toLowerCase();
+      var dropdown = document.getElementById("dropdown");
+
+      // Clear the existing dropdown options
+      dropdown.innerHTML = "";
+
+      // Create a new dropdown with filtered options
+      var filteredOptions = originalDropdownOptions.filter(function (option) {
+        return option.text.toLowerCase().includes(searchInput);
+      });
+
+      for (var i = 0; i < filteredOptions.length; i++) {
+        dropdown.appendChild(filteredOptions[i]);
+      }
+    }
+
+    function search() {
+      var dropdown = document.getElementById("dropdown");
+      var selectedOption = document.getElementById("selectedOption");
+
+      // Get the selected option
+      var selectedIndex = dropdown.selectedIndex;
+      if (selectedIndex !== -1) {
+        var selectedText = dropdown.options[selectedIndex].text;
+        selectedOption.textContent = selectedText;
+      } else {
+        selectedOption.textContent = "";
+      }
+    }
+
+  </script>
+
+  <script>
+
+    let newsession = sessionStorage.getItem("newsession");
+
+    let preloader = document.getElementById('preloader');
+    let completed = false;
+
+    if (performance.navigation.type === 1) {
+      // Page was reloaded
+      console.log("Page was reloaded");
+    } else {
+      // Page was not reloaded
+      console.log("Page was not reloaded");
+    }
+
+    // checking whether the user is opening a new session or not
+    // if its a new session then only the preloader will be shown otherwise it will be not shown
+    if (newsession == "false ") {
+      preloader.style.display = "none";
+    }
+
+
+    if (performance.navigation.type === 1 || newsession != "false") {
+      preloader.style.display = "flex";
+      window.addEventListener("load", setTimeout(function () {
+        preloader.style.animation = "preloader-fade-out 0.25s ease-in-out forwards";
+        completed = true;
+
+        sessionStorage.setItem("newsession", "false");
+
+        if (completed == true) {
+          setTimeout(function () {
+            preloader.style.display = "none";
+
+          }, 800);
+        }
+
+
+      }, 3000));
+
+    }
+
+  </script>
+
+  <!-- --------------------------------Jscript for Accordion(FAQs) ----------------------->
+  <script>
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header")
+    accordionItemHeaders.forEach(accordionItemHeaders => {
+      accordionItemHeaders.addEventListener("click", event => {
+        accordionItemHeaders.classList.toggle("active");
+      })
+    })
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E1BW75HJ6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-9E1BW75HJ6');
+  </script>
+
+  {% comment %} <script src="index.js"></script> {% endcomment %}
+  <!-- ---------------------------------------------------------------------To be continued--------------------------------------------- -->
+  </nav>
+
+
+
+  <script>
+
+    // creating profList
+    let profList = [];
+    let profDetails;
+    {% for prof in profs %}
+    profDetails = {
+      "name" : "{{prof.name}}",
+      "teaching" : {{prof.teaching}},
+      "evaluation" : {{prof.evaluation}},
+      "behavior" : {{prof.behavior}},
+      "internals" : {{prof.internals}},
+      "class_average_marks" : "{{prof.class_average_marks}}",
+      "overall" : "{{prof.overall}}",
+      "color" : "{{prof.color}}",
+    }
+    profList.push(profDetails);
+    {% endfor %}
+
+
+    //capturing the selected value in the dropdown
+    document.getElementById("submit").addEventListener('click', function () {
+      let dropdown = document.getElementById("dropdown");
+      let selectedProf = dropdown.value;
+
+    
+    let selectedOption = document.getElementById("selectedOption");
+    selectedOption.innerHTML = `Please Select a Professor from the above Dropdown list`;
+    selectedOption.setAttribute("style", `color: #f0ff00;`);
+
+    let flag = true;
+
+    for (let i = 0; i<profList.length; i++){
+
+      if( selectedProf == profList[i]["name"]){
+
+        flag = false;
+
+        let selectedOption = document.getElementById("selectedOption");
+        let Teaching = profList[i]["teaching"]; 
+        let Evaluation = profList[i]["evaluation"];     
+        let Behaviour = profList[i]["behavior"];
+        let Internals = profList[i]["internals"];
+        let Average = profList[i]["class_average_marks"];
+        let Overall = profList[i]["overall"].toUpperCase();
+        let Color = profList[i]["color"];
+
+        console.log(Average)
+
+        
+        //   Fetching Review of the selected Proffessor
+        selectedOption.innerHTML = `Teaching: ${Teaching} <br>
+        Evaluation : ${Evaluation} <br>
+        Behaviour : ${Behaviour} <br>
+        Internals : ${Internals} <br>
+        Average : ${Average} <br><br>
+        Overall : ${Overall} <br>`;
+        
+        selectedOption.setAttribute("style", `background-color:${Color}; color: black;`);
+
+    }
+  }
+    
+  
+  if(flag = false){
+
+      let selectedOption = document.getElementById("selectedOption");
+      selectedOption.innerHTML = `Please Select a Professor from the above Dropdown list`;
+      selectedOption.setAttribute("style", `color: #f0ff00;`);
+    }
+    })
+  
+</script>
+
+
+</body>
+
+
+
+</html>
