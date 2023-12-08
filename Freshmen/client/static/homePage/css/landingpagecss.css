@@ -152,7 +152,7 @@ input[type="text"] {
 }
 #selectedOption {
   font-weight: bold;
-  color: black;
+  color: #f0ff00;
 }
 /* ---Find out button-- */
 button[type="submit"] {
@@ -195,7 +195,7 @@ select {
   justify-self: center;
 }
 
-/* --Description-- */
+/* --Descriptions-- */
 .desc {
   color: #f0ff00;
   font-family: "Nunito Sans", sans-serif;
@@ -216,7 +216,7 @@ select {
 }
 p {
   font-family: "Nunito Sans", sans-serif;
-  background-color: rgb(0, 255, 0);
+  /* background-color: rgb(0, 255, 0); */
   height: 167px;
   border-radius: 10px;
   padding-left: 10px;
@@ -230,7 +230,7 @@ h3 {
   color: #f0ff00;
 }
 #selectedOption {
-  color: black;
+  color: #f0ff00;
 }
 
 /* ------------------------------------------------------------------------Accordion(FAQs) */

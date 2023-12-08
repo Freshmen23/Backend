@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Review</title>
+</head>
+<body>
+    <form action="/reviewSubmitted/" method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="teaching">Teaching:</label>
+    <input type="text" id="teaching" name="teaching"><br><br>
+
+    <label for="evaluation">Evaluation:</label>
+    <input type="text" id="evaluation" name="evaluation"><br><br>
+
+    <label for="behavior">Behavior:</label>
+    <input type="text" id="behavior" name="behavior"><br><br>
+
+    <label for="internals">Internals:</label>
+    <input type="text" id="internals" name="internals"><br><br>
+
+    <label for="class_average_marks">Class Average Marks:</label>
+    <input type="text" id="class_average_marks" name="class_average_marks"><br><br>
+
+    {% comment %} <label for="overall">Overall:</label>
+    <input type="text" id="overall" name="overall"><br><br> {% endcomment %}
+
+    <button type="submit">submit</button>
+    </form>
+</body>
+</html>

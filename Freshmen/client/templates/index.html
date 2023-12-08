@@ -83,6 +83,9 @@
         <input type="text" id="searchInput" placeholder="Enter a name" oninput="filterDropdown()">
         <select id="dropdown">
           <option value="option1">Name</option>
+          {% for prof in profs %}
+          <option value="{{prof.name}}">{{prof.name}}</option>
+          {% endfor %}
           <option value="Priyank Nema">Priyank Nema</option>
           <option value="Manoj Acharya">Manoj Acharya</option>
           <option value="Ujjwal Kumar Mishra">Ujjwal Kumar Mishra</option>
@@ -193,8 +196,15 @@
     </div>
     <div class="results">
       <h3>Review:</h3>
-      <p id="selectedOption"></p>
+      <p id="selectedOption">Please Select a Professor from the above Dropdown list</p>
     </div>
+  </div>
+
+  <div id="commentSection">
+    <h1><strong>DESCRIPTION</strong></h1>
+    {% for prof in profs %}
+    <div class="comments">{{prof.desc}}</div>
+    {% endfor %}
   </div>
 
   <!------------------------------------------------------------------------Accordion(FAQs)--------------------------------------- -->
@@ -247,6 +257,8 @@
       </div>
     </div>
   </div>
+
+
 
 
   <!-- ---------------------------------------------------------------------footer------------------------------------------------ -->
@@ -383,13 +395,89 @@
     gtag('config', 'G-9E1BW75HJ6');
   </script>
 
-  <script src="index.js"></script>
+  {% comment %} <script src="index.js"></script> {% endcomment %}
   <!-- ---------------------------------------------------------------------To be continued--------------------------------------------- -->
   </nav>
 
 
 
+  <script>
+
+    // creating profList
+    let profList = [];
+    let profDetails;
+    {% for prof in profs %}
+    profDetails = {
+      "name" : "{{prof.name}}",
+      "teaching" : {{prof.teaching}},
+      "evaluation" : {{prof.evaluation}},
+      "behavior" : {{prof.behavior}},
+      "internals" : {{prof.internals}},
+      "class_average_marks" : "{{prof.class_average_marks}}",
+      "overall" : "{{prof.overall}}",
+      "color" : "{{prof.color}}",
+    }
+    profList.push(profDetails);
+    {% endfor %}
+
+
+    //capturing the selected value in the dropdown
+    document.getElementById("submit").addEventListener('click', function () {
+      let dropdown = document.getElementById("dropdown");
+      let selectedProf = dropdown.value;
+
+    
+    let selectedOption = document.getElementById("selectedOption");
+    selectedOption.innerHTML = `Please Select a Professor from the above Dropdown list`;
+    selectedOption.setAttribute("style", `color: #f0ff00;`);
+
+    let flag = true;
+
+    for (let i = 0; i<profList.length; i++){
+
+      if( selectedProf == profList[i]["name"]){
+
+        flag = false;
+
+        let selectedOption = document.getElementById("selectedOption");
+        let Teaching = profList[i]["teaching"]; 
+        let Evaluation = profList[i]["evaluation"];     
+        let Behaviour = profList[i]["behavior"];
+        let Internals = profList[i]["internals"];
+        let Average = profList[i]["class_average_marks"];
+        let Overall = profList[i]["overall"].toUpperCase();
+        let Color = profList[i]["color"];
+
+        console.log(Average)
+
+        
+        //   Fetching Review of the selected Proffessor
+        selectedOption.innerHTML = `Teaching: ${Teaching} <br>
+        Evaluation : ${Evaluation} <br>
+        Behaviour : ${Behaviour} <br>
+        Internals : ${Internals} <br>
+        Average : ${Average} <br><br>
+        Overall : ${Overall} <br>`;
+        
+        selectedOption.setAttribute("style", `background-color:${Color}; color: black;`);
+
+    }
+  }
+    
+  
+  if(flag = false){
+
+      let selectedOption = document.getElementById("selectedOption");
+      selectedOption.innerHTML = `Please Select a Professor from the above Dropdown list`;
+      selectedOption.setAttribute("style", `color: #f0ff00;`);
+    }
+    })
+  
+</script>
+
 
 </body>
+
+
 
 </html>
